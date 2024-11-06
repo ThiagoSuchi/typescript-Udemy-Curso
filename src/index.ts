@@ -2,6 +2,7 @@
     return `Ola ${name}`
 }
   
-console.log(greet('Thiago!'));
+
+
 
 
