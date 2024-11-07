@@ -10,10 +10,11 @@ console.log(pessoa.nome);
 console.log(pessoa.idade);
 
 //-------------------------------------------------------------------------------------------
+// Object Alias / readonly / ?
 
 type Pessoa = {
     nome: string,
-    idade: number,
+    readonly idade: number,
     adulto?: boolean
 }
 
@@ -25,3 +26,24 @@ let person: Pessoa = {
 console.log(person);
 console.log(person.nome);
 console.log(person.idade);
+
+//-------------------------------------------------------------------------------------------
+
+// Index Signature -
+// permite que você defina um tipo para objetos onde as chaves são dinâmicas, ou seja, não conhecidas ou específicas de antemão.
+
+const objectA: {
+    [key: number]: string;
+} = {
+    3: 'Três',
+    5: 'Cinco',
+}
+
+const objectB: {
+    [key: string]: unknown;
+} = {
+    Valor1: [1,2,3,4,5],
+    Valor2: 'Academia',
+    Valor3: 22,
+    Valor4: true
+}
