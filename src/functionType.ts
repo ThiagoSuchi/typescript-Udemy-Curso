@@ -1,5 +1,3 @@
-import { it } from "node:test";
-
 // Função de tipo(Type of function):
 type MapStringCallback = (item: string) => string;
 
