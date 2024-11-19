@@ -1,1 +1,1 @@
-console.log('Sou o módulo');
+console.log('Sou o módulo!');
