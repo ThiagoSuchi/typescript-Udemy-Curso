@@ -2,14 +2,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/Webpack/mod.ts":
-/*!****************************!*\
-  !*** ./src/Webpack/mod.ts ***!
-  \****************************/
+/***/ "./src/webpack/form-control.ts":
+/*!*************************************!*\
+  !*** ./src/webpack/form-control.ts ***!
+  \*************************************/
 /***/ (() => {
 
 
-console.log('Sou o módulo!');
 
 
 /***/ })
@@ -46,11 +45,11 @@ var __webpack_exports__ = {};
 (() => {
 var exports = __webpack_exports__;
 /*!******************************!*\
-  !*** ./src/Webpack/index.ts ***!
+  !*** ./src/webpack/index.ts ***!
   \******************************/
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-__webpack_require__(/*! ./mod */ "./src/Webpack/mod.ts");
+__webpack_require__(/*! ./form-control */ "./src/webpack/form-control.ts");
 
 })();
 
