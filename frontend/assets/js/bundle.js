@@ -26,6 +26,8 @@ form.addEventListener('submit', function (e) {
     checkForEmptyFields(username, email, password, password2);
     checkEmail(email);
     checkEqualPasswords(password, password2);
+    if (shouldSentForm(this))
+        console.log('Formulario enviado...');
 });
 function checkForEmptyFields(...inputs) {
     inputs.forEach((input) => {
@@ -54,6 +56,13 @@ function showErrorMessages(input, msg) {
     const errorMessage = formFilds.querySelector('.error-message');
     errorMessage.innerText = msg;
     formFilds.classList.add(SHOW_ERROR_MESSAGES);
+}
+function shouldSentForm(form) {
+    let send = true;
+    form
+        .querySelectorAll('.' + SHOW_ERROR_MESSAGES)
+        .forEach(() => (send = false));
+    return send;
 }
 
 
