@@ -15,6 +15,8 @@ form.addEventListener('submit', function(e) {
     checkForEmptyFields(username, email, password, password2);
     checkEmail(email);
     checkEqualPasswords(password, password2)
+    
+    // Se a function retornar true, a mensagem de 'Formulario enviado...' é imprimida.
     if(shouldSentForm(this)) console.log('Formulario enviado...');
     
 });
@@ -51,10 +53,12 @@ function showErrorMessages(input: HTMLInputElement, msg: string): void {
     formFilds.classList.add(SHOW_ERROR_MESSAGES);
 }
 
+// Esta function irá funcionar como uma condição:
 function shouldSentForm(form: HTMLFormElement): boolean {
     let send = true;
+    // Se o formulario possuir algum campo inválido, send recebe false 
     form
     .querySelectorAll('.' + SHOW_ERROR_MESSAGES)
     .forEach(() => (send = false));
-    return send;
+    return send;// Caso o formulário na haver nenhum campo inválido, ai send retorna true
 }
