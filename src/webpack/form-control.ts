@@ -9,40 +9,40 @@ const password = document.querySelector('.password') as HTMLInputElement;
 const password2 = document.querySelector('.password2') as HTMLInputElement;
 
 
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', function (e) {
     e.preventDefault();
     hideErrorMessages(this);
     checkForEmptyFields(username, email, password, password2);
     checkEmail(email);
     checkEqualPasswords(password, password2)
-    
+
     // Se a function retornar true, a mensagem de 'Formulario enviado...' é imprimida.
-    if(shouldSentForm(this)) console.log('Formulario enviado...');
-    
+    if (shouldSentForm(this)) console.log('Formulario enviado...');
+
 });
 
 function checkForEmptyFields(...inputs: HTMLInputElement[]): void {
     inputs.forEach((input) => {
-        if(!input.value) {
+        if (!input.value) {
             showErrorMessages(input, 'Este campo não pode ficar vazio.')
         }
     })
 }
 
 function checkEmail(input: HTMLInputElement): void {
-    if(email.value && !isEmail(input.value)) showErrorMessages(input, 'Email inválido')
+    if (email.value && !isEmail(input.value)) showErrorMessages(input, 'Email inválido')
 }
 
 function checkEqualPasswords(pass1: HTMLInputElement, pass2: HTMLInputElement): void {
-    if(pass1.value !== pass2.value) {
+    if (pass1.value !== pass2.value) {
         showErrorMessages(pass2, 'A senhas estão diferentes')
     }
 }
 
 function hideErrorMessages(form: HTMLFormElement): void {
     form
-    .querySelectorAll('.' + SHOW_ERROR_MESSAGES)
-    .forEach((item) => item.classList.remove(SHOW_ERROR_MESSAGES))
+        .querySelectorAll('.' + SHOW_ERROR_MESSAGES)
+        .forEach((item) => item.classList.remove(SHOW_ERROR_MESSAGES))
 };
 
 function showErrorMessages(input: HTMLInputElement, msg: string): void {
@@ -58,7 +58,7 @@ function shouldSentForm(form: HTMLFormElement): boolean {
     let send = true;
     // Se o formulario possuir algum campo inválido, send recebe false 
     form
-    .querySelectorAll('.' + SHOW_ERROR_MESSAGES)
-    .forEach(() => (send = false));
-    return send;// Caso o formulário na haver nenhum campo inválido, ai send retorna true
+        .querySelectorAll('.' + SHOW_ERROR_MESSAGES)
+        .forEach(() => (send = false));
+    return send;// Caso o formulário não haver nenhum campo inválido, ai send retorna true
 }
