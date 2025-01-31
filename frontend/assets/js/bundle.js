@@ -65,7 +65,7 @@ function shouldSentForm(form) {
     form
         .querySelectorAll('.' + SHOW_ERROR_MESSAGES)
         .forEach(() => (send = false));
-    return send; // Caso o formulário na haver nenhum campo inválido, ai send retorna true
+    return send; // Caso o formulário não haver nenhum campo inválido, ai send retorna true
 }
 
 
