@@ -8,9 +8,11 @@ function esperaAi(msg, tempo) {
     // A função resolve é usada para indicar que a promise concluíu
     // A função reject indica que a promise falhou
     return new Promise((resolve, reject) => {
-        if (typeof msg !== 'string') reject('Erro ao verificar valores, porfavor forneça valores tipo texto.')
-
         setTimeout(() => {
+            if (typeof msg !== 'string') {
+                reject('Erro ao verificar valores, porfavor forneça valores tipo texto.')
+                return
+            }
             resolve(msg);
         }, tempo);
     })
