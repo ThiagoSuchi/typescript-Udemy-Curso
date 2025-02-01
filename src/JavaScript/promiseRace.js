@@ -14,6 +14,7 @@ const promises = [
     esperaAi('Valor 4', 5000),
 ]
 
+// .race pega a primereira promise e resolve, se haver algum erro ele retorna o erro
 Promise.race(promises)
     .then(function(valor) {
         console.log(valor);
