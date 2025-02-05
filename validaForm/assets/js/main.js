@@ -13,6 +13,31 @@ class validaFormulario {
     handleSubmit(e) {
         e.preventDefault();
         const camposValidos = this.camposValidos();
+        const senhasValidas = this.senhasValidas()
+
+        if(camposValidos && senhasValidas) {
+            this.formulario.submit();
+        }
+    }
+
+    senhasValidas() {
+        let valid = true;
+
+        const senha = this.formulario.querySelector('.senha');
+        const repetirSenha = this.formulario.querySelector('.repetir-senha');
+
+        if(senha.value !== repetirSenha.value) {
+            valid = false
+            this.criarErro(senha, 'Campo repetir senha não está igual ao senha.')
+            this.criarErro(repetirSenha, 'Campo repetir senha não está igual ao senha.')
+        }
+
+        if(senha.value.length < 6 || senha.value.length > 12) {
+            valid = false
+            this.criarErro(senha, 'Senha precisa estar enre 6 e 12 caracteres.')
+        }
+
+        return valid;
     }
 
     camposValidos() {
